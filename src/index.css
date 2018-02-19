@@ -2,5 +2,49 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-color: green;
+}
+
+.container {
+  display: flex;
+  flex-flow: column wrap;
+  text-align: center;
+  justify-content: space-around;
+  height: 500px;
+  border: 1px solid black;
+}
+
+.header {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.twitch-buttons {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-around;
+
+  height: 140px;
+}
+
+.content-wrapper {
+  align-items: center;
+  text-align: center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.picture-and-name {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  width: 170px;
+}
+
+.picture {
+  width: 60px;
+  height: 60px;
 }
