@@ -33,15 +33,18 @@ body {
   text-align: center;
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 100%;
+  padding-left: 100px;
+  padding-right: 100px;
 }
 
 .picture-and-name {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
-  width: 170px;
+  align-items: center;
+  width: 200px;
 }
 
 .picture {
