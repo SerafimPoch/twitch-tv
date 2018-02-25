@@ -2,18 +2,19 @@ import React, { Component } from "react";
 import { Button } from "reactstrap";
 import cat from "./cat.jpg";
 import { request } from "./Request";
-import { links } from "./Store";
-import Offline from "./Offline";
+
 
 class Api extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: ["ESL_SC2", "freecodecamp", "dikaro4ka"],
-      game: "",
+      data: ["ESL_SC2", "xop0",'freecodecamp'],
+      online: '',
+      offline:'',
       status: "offline"
     };
     this.allClick = this.allClick.bind(this);
+    this.offlineClick = this.offlineClick.bind(this);
   }
 
   componentDidMount() {
@@ -38,7 +39,12 @@ class Api extends Component {
                       <img className="picture" src={stream.channel.logo} />
                     </div>
                     <div className="channel-name">
-                      <a href={links[0]} target="_blank">
+                      <a
+                        href={`https://www.twitch.tv/${
+                          stream.channel.display_name
+                        }`}
+                        target="_blank"
+                      >
                         <p>{stream.channel.display_name}</p>
                       </a>
                     </div>
@@ -50,9 +56,40 @@ class Api extends Component {
                 {this.state.game}
               </div>
             ),
-            status: "online"
+            status: 'online'
           });
         }, 100);
+      } else {
+        this.setState({
+          offline: ''
+        })
+        setTimeout(()=>{
+          this.setState({
+            offline: <div>
+            <div className="content-wrapper">
+              <div className="picture-and-name">
+                <div>
+                  <img className="picture" src={cat} />
+                </div>
+                <div className="channel-name">
+                  <a
+                    href={`https://www.twitch.tv/${
+                      e
+                    }`}
+                    target="_blank"
+                  >
+                    <p>{e}</p>
+                  </a>
+                </div>
+              </div>
+              <div className="game-and-status">
+                <p>Offline</p>
+              </div>
+            </div>
+            {this.state.offline}
+          </div>
+          })
+        },100)
       }
     });
   }
@@ -61,8 +98,9 @@ class Api extends Component {
     this.dark();
   }
 
+  offlineClick() {}
+
   render() {
-    const data = this.state.data;
     const game = this.state.game;
     return (
       <div className="container">
@@ -80,17 +118,15 @@ class Api extends Component {
               <Button color="success">Online</Button>
             </div>
             <div>
-              <Button color="info">Offline</Button>
+              <Button onClick={this.offlineClick} color="info">
+                Offline
+              </Button>
             </div>
           </div>
         </div>
-        <div>
-          <Offline />
-          <div>
-            {this.state.status === "online"
-              ? game
-              : SVGFEComponentTransferElement}
-          </div>
+        <div className='twitch-channels'>
+        {game}
+        {this.state.offline}  
         </div>
       </div>
     );

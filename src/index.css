@@ -35,6 +35,7 @@ body {
   flex-flow: row wrap;
   justify-content: space-between;
   width: 100%;
+  height: 80px;
   padding-left: 100px;
   padding-right: 100px;
 }
@@ -50,4 +51,11 @@ body {
 .picture {
   width: 60px;
   height: 60px;
+}
+
+.twitch-channels {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-around;
+  height: 250px;
 }
