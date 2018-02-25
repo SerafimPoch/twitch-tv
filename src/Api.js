@@ -36,13 +36,12 @@ class Api extends Component {
                 <div className="content-wrapper">
                   <div className="picture-and-name">
                     <div>
-                      <img className="picture" src={stream.channel.logo} />
+                      <img className="picture" src={stream.channel.logo} 
+                      alt={stream.channel.name} />
                     </div>
                     <div className="channel-name">
                       <a
-                        href={`https://www.twitch.tv/${
-                          stream.channel.display_name
-                        }`}
+                        href={stream.channel.url}
                         target="_blank"
                       >
                         <p>{stream.channel.display_name}</p>
@@ -69,7 +68,7 @@ class Api extends Component {
             <div className="content-wrapper">
               <div className="picture-and-name">
                 <div>
-                  <img className="picture" src={cat} />
+                  <img className="picture" src={cat} alt={e} />
                 </div>
                 <div className="channel-name">
                   <a
@@ -102,6 +101,7 @@ class Api extends Component {
 
   render() {
     const game = this.state.game;
+    const offline = this.state.offline
     return (
       <div className="container">
         <div className="header">
@@ -126,7 +126,7 @@ class Api extends Component {
         </div>
         <div className='twitch-channels'>
         {game}
-        {this.state.offline}  
+        {offline}  
         </div>
       </div>
     );

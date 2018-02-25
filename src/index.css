@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Patua+One');
+
 body {
   margin: 0;
   padding: 0;
@@ -10,22 +12,26 @@ body {
   text-align: center;
   justify-content: space-around;
   height: 500px;
-  border: 1px solid black;
 }
 
 .header {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-end;
+
 }
 
 .twitch-buttons {
   display: flex;
   flex-flow: column wrap;
   justify-content: space-around;
-
   height: 140px;
+}
+
+.twitch-name {
+  font-size: 60px;
+  font-family: 'Patua One', cursive;
 }
 
 .content-wrapper {
