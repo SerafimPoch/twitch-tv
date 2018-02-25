@@ -143,7 +143,6 @@ class Api extends Component {
         {this.state.render === true ? <div>{online} {offline}</div> : 
       this.state.status === 'online' ? online : offline
       }
-        
         </div>
       </div>
     );
