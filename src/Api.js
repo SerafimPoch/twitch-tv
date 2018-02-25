@@ -11,10 +11,12 @@ class Api extends Component {
       data: ["ESL_SC2", "xop0",'freecodecamp'],
       online: '',
       offline:'',
-      status: "offline"
+      status: "",
+      render: true
     };
     this.allClick = this.allClick.bind(this);
     this.offlineClick = this.offlineClick.bind(this);
+    this.onlineClick = this.onlineClick.bind(this)
   }
 
   componentDidMount() {
@@ -27,11 +29,11 @@ class Api extends Component {
       const stream = await twitchData.stream;
       if (stream !== null) {
         this.setState({
-          game: ""
+          online: ""
         });
         setTimeout(() => {
           this.setState({
-            game: (
+            online: (
               <div>
                 <div className="content-wrapper">
                   <div className="picture-and-name">
@@ -52,10 +54,9 @@ class Api extends Component {
                     <p>{stream.game}</p>
                   </div>
                 </div>
-                {this.state.game}
+                {this.state.online}
               </div>
-            ),
-            status: 'online'
+            )
           });
         }, 100);
       } else {
@@ -95,12 +96,26 @@ class Api extends Component {
 
   allClick() {
     this.dark();
+    this.setState({
+      render: true
+    })
   }
 
-  offlineClick() {}
+  onlineClick() {
+    this.setState({
+      status: 'online',
+      render: false
+    })
+  }
+
+  offlineClick() {
+    this.setState({
+      status: 'offline'
+    })
+  }
 
   render() {
-    const game = this.state.game;
+    const online = this.state.online;
     const offline = this.state.offline
     return (
       <div className="container">
@@ -115,7 +130,7 @@ class Api extends Component {
               </Button>
             </div>
             <div>
-              <Button color="success">Online</Button>
+              <Button onClick={this.onlineClick} color="success">Online</Button>
             </div>
             <div>
               <Button onClick={this.offlineClick} color="info">
@@ -125,8 +140,10 @@ class Api extends Component {
           </div>
         </div>
         <div className='twitch-channels'>
-        {game}
-        {offline}  
+        {this.state.render === true ? <div>{online} {offline}</div> : 
+      this.state.status === 'online' ? online : offline
+      }
+        
         </div>
       </div>
     );
