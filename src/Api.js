@@ -125,15 +125,15 @@ class Api extends Component {
           </div>
           <div className="twitch-buttons">
             <div>
-              <Button onClick={this.allClick} color="primary">
+              <Button className="button" onClick={this.allClick} color="primary">
                 All
               </Button>
             </div>
             <div>
-              <Button onClick={this.onlineClick} color="success">Online</Button>
+              <Button className="button"  onClick={this.onlineClick} color="success">Online</Button>
             </div>
             <div>
-              <Button onClick={this.offlineClick} color="info">
+              <Button className="button" onClick={this.offlineClick} color="info">
                 Offline
               </Button>
             </div>

@@ -65,3 +65,7 @@ body {
   justify-content: space-around;
   height: 250px;
 }
+
+.button {
+  width: 70px;
+}
