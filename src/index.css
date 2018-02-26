@@ -1,5 +1,71 @@
+@import url('https://fonts.googleapis.com/css?family=Patua+One');
+
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-flow: column wrap;
+  text-align: center;
+  justify-content: space-around;
+  height: 500px;
+}
+
+.header {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: flex-end;
+
+}
+
+.twitch-buttons {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-around;
+  height: 140px;
+}
+
+.twitch-name {
+  font-size: 60px;
+  font-family: 'Patua One', cursive;
+}
+
+.content-wrapper {
+  align-items: center;
+  text-align: center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  width: 100%;
+  height: 80px;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.picture-and-name {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 200px;
+}
+
+.picture {
+  width: 60px;
+  height: 60px;
+}
+
+.twitch-channels {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-around;
+  height: 250px;
+}
+
+.button {
+  width: 70px;
 }
